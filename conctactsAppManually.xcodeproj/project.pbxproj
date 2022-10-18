@@ -12,6 +12,8 @@
 		70B6FAD728FCF79B00BC7E02 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70B6FAD628FCF79B00BC7E02 /* Assets.xcassets */; };
 		70B6FADA28FCF79B00BC7E02 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70B6FAD828FCF79B00BC7E02 /* LaunchScreen.storyboard */; };
 		70B6FAE228FCF91B00BC7E02 /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B6FAE128FCF91B00BC7E02 /* ContactsViewController.swift */; };
+		70B6FAE428FEF5EC00BC7E02 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B6FAE328FEF5EC00BC7E02 /* Contact.swift */; };
+		70B6FAE628FEF60600BC7E02 /* ContactAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B6FAE528FEF60600BC7E02 /* ContactAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		70B6FAD928FCF79B00BC7E02 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		70B6FADB28FCF79B00BC7E02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		70B6FAE128FCF91B00BC7E02 /* ContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
+		70B6FAE328FEF5EC00BC7E02 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
+		70B6FAE528FEF60600BC7E02 /* ContactAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +59,8 @@
 			isa = PBXGroup;
 			children = (
 				70B6FAE128FCF91B00BC7E02 /* ContactsViewController.swift */,
+				70B6FAE328FEF5EC00BC7E02 /* Contact.swift */,
+				70B6FAE528FEF60600BC7E02 /* ContactAPI.swift */,
 				70B6FACD28FCF79900BC7E02 /* AppDelegate.swift */,
 				70B6FACF28FCF79900BC7E02 /* SceneDelegate.swift */,
 				70B6FAD628FCF79B00BC7E02 /* Assets.xcassets */,
@@ -134,8 +140,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70B6FAE428FEF5EC00BC7E02 /* Contact.swift in Sources */,
 				70B6FACE28FCF79900BC7E02 /* AppDelegate.swift in Sources */,
 				70B6FAD028FCF79900BC7E02 /* SceneDelegate.swift in Sources */,
+				70B6FAE628FEF60600BC7E02 /* ContactAPI.swift in Sources */,
 				70B6FAE228FCF91B00BC7E02 /* ContactsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
