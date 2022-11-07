@@ -8,7 +8,7 @@
 import UIKit
 
 // UITableViewDataSource
-class ContactsViewController: UIViewController, UITableViewDelegate  {
+class ContactsViewController: UIViewController {
     
   
     private let contactsTableView = UITableView()
@@ -20,19 +20,16 @@ class ContactsViewController: UIViewController, UITableViewDelegate  {
         
         super.viewDidLoad()
         
+        setUpNavigation()
         view.backgroundColor = .white
         
         view.addSubview(contactsTableView)
         
         tableViewConstraints()
-        contactsTableView.delegate = self
         contactsTableView.register(ContactTableViewCell.self, forCellReuseIdentifier: "contactCell")
         contactViewDelegate = ContactsViewDelegate(withDelegate: self)
         contactsTableView.dataSource = dataSource
         contactsTableView.delegate = contactViewDelegate
-        
-        setUpNavigation()
-      
         
     }
     
@@ -48,9 +45,14 @@ class ContactsViewController: UIViewController, UITableViewDelegate  {
    
     func setUpNavigation() {
         
-        navigationItem.title = "Contacts"
-        self.navigationController?.navigationBar.barTintColor = UIColor(red: 0.2431372549, green: 0.7647058824, blue: 0.8392156863, alpha: 1)
-        self.navigationController?.navigationBar.isTranslucent = false
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = UIColor(red: 0.2431372549, green: 0.7647058824, blue: 0.8392156863, alpha: 1)
+        
+        self.navigationItem.title = "Contacts"
+        self.navigationController?.navigationBar.standardAppearance = appearance
+        self.navigationController?.navigationBar.scrollEdgeAppearance = navigationController?.navigationBar.standardAppearance
+        self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(red: 1, green: 1, blue: 1, alpha: 1)]
         
     }

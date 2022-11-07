@@ -120,11 +120,12 @@ class ContactTableViewCell: UITableViewCell {
     }
     
     // Pending of reviewing
+    // This method is called whenever a cell is reused
     override func prepareForReuse() {
        //model = nil
        profileImageView.image = nil
        countryImageView.image = nil
-       print(" Reusing cell ")
+      
     }
     
     required init?(coder: NSCoder) {

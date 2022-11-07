@@ -20,8 +20,8 @@ class DetailViewController: UIViewController {
     
     private let nameLabel: UILabel = {
         let label = UILabel()
-        label.text = " Name : "
-        label.backgroundColor = .orange
+        label.text = "Name       :"
+        label.font = UIFont.preferredFont(forTextStyle: .headline)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     } ()
@@ -29,15 +29,15 @@ class DetailViewController: UIViewController {
     private let valueNameLabel:UILabel = {
         let label = UILabel()
         label.text = " Value Label "
-        label.backgroundColor = .green
+        label.font = UIFont.preferredFont(forTextStyle: .body)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     private let jobTitleLabel:UILabel = {
         let label = UILabel()
-        label.text = " Job Title :"
-        label.backgroundColor = .blue
+        label.text = "Job Title :"
+        label.font = UIFont.preferredFont(forTextStyle: .headline)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -45,7 +45,7 @@ class DetailViewController: UIViewController {
     private let jobTitleValue: UILabel = {
         let label = UILabel()
         label.text = " Job Value"
-        label.backgroundColor = .cyan
+        label.font = UIFont.preferredFont(forTextStyle: .body)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -69,11 +69,11 @@ class DetailViewController: UIViewController {
         
         NSLayoutConstraint.activate([
             
+            detailView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             detailView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
             detailView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
-            detailView.heightAnchor.constraint(equalToConstant: view.frame.height/3),
-            detailView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            
+            detailView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+
             nameLabel.topAnchor.constraint(equalTo: detailView.topAnchor, constant: 40),
             nameLabel.leftAnchor.constraint(equalTo: detailView.leftAnchor, constant: 10),
             nameLabel.heightAnchor.constraint(equalToConstant: 50),
