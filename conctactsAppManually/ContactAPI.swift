@@ -23,7 +23,10 @@ class ContactAPI {
             Contact(name: "Shreya Nithin", jobTitle: "Product Designer", country: "az"),
             Contact(name: "Emily Adams", jobTitle: "Editor", country: "bo"),
             Contact(name: "Aabidah Amal", jobTitle: "Creative Director", country: "au"),
-            Contact(name: "Jeans Ruiz", jobTitle: "IOS Developer", country: "pe")
+            Contact(name: "Jeans Ruiz", jobTitle: "IOS Developer", country: "pe"),
+            Contact(name: "Kelly Goodwin", jobTitle: "Designer", country: "bo"),
+            Contact(name: "Mohammad Hussain", jobTitle: "SEO Specialist", country: "be"),
+            Contact(name: "Manuel Poblete", jobTitle: "Architect", country: nil)
         ]
         return contacts
     }

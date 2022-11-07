@@ -7,20 +7,30 @@
 
 import UIKit
 
-class ContactsViewController: UIViewController, UITableViewDataSource {
+// UITableViewDataSource
+class ContactsViewController: UIViewController, UITableViewDelegate  {
     
   
-    let contactsTableView = UITableView()
+    private let contactsTableView = UITableView()
     private let contacts = ContactAPI.getContact()
+    private var dataSource = ContactsDataSource()
+    private var contactViewDelegate:ContactsViewDelegate?
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        //view.backgroundColor = .red
+        
+        view.backgroundColor = .white
+        
         view.addSubview(contactsTableView)
+        
         tableViewConstraints()
-        contactsTableView.dataSource = self
-        contactsTableView.register(UITableViewCell.self, forCellReuseIdentifier: "contactCell")
+        contactsTableView.delegate = self
+        contactsTableView.register(ContactTableViewCell.self, forCellReuseIdentifier: "contactCell")
+        contactViewDelegate = ContactsViewDelegate(withDelegate: self)
+        contactsTableView.dataSource = dataSource
+        contactsTableView.delegate = contactViewDelegate
+        
         setUpNavigation()
       
         
@@ -35,7 +45,7 @@ class ContactsViewController: UIViewController, UITableViewDataSource {
         contactsTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
         
     }
-    //red: 0.2431372549, green: 0.7647058824, blue: 0.8392156863
+   
     func setUpNavigation() {
         
         navigationItem.title = "Contacts"
@@ -44,27 +54,10 @@ class ContactsViewController: UIViewController, UITableViewDataSource {
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(red: 1, green: 1, blue: 1, alpha: 1)]
         
     }
-
-    /*
-    // MARK:- Data Source
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
-    // MARK:- Data Source
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return contacts.count
+    func getContactsModel() -> [Contact] {
+        return self.contacts
     }
+
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "contactCell", for: indexPath)
-        cell.textLabel?.text = contacts[indexPath.row].name
-        
-        return cell
-    }
 }
