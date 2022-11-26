@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7041F2EC291C94060091C56A /* NewContactViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7041F2EB291C94060091C56A /* NewContactViewCell.swift */; };
 		70B6FACE28FCF79900BC7E02 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B6FACD28FCF79900BC7E02 /* AppDelegate.swift */; };
 		70B6FAD028FCF79900BC7E02 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B6FACF28FCF79900BC7E02 /* SceneDelegate.swift */; };
 		70B6FAD728FCF79B00BC7E02 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70B6FAD628FCF79B00BC7E02 /* Assets.xcassets */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7041F2EB291C94060091C56A /* NewContactViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewContactViewCell.swift; sourceTree = "<group>"; };
 		70B6FACA28FCF79900BC7E02 /* conctactsAppManually.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = conctactsAppManually.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70B6FACD28FCF79900BC7E02 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		70B6FACF28FCF79900BC7E02 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 				70B6FAE528FEF60600BC7E02 /* ContactAPI.swift */,
 				70B6FACD28FCF79900BC7E02 /* AppDelegate.swift */,
 				70B6FAE728FF3D4200BC7E02 /* ContactTableViewCell.swift */,
+				7041F2EB291C94060091C56A /* NewContactViewCell.swift */,
 				70B6FAE92904193700BC7E02 /* DetailViewController.swift */,
 				70B6FACF28FCF79900BC7E02 /* SceneDelegate.swift */,
 				70B6FAD628FCF79B00BC7E02 /* Assets.xcassets */,
@@ -156,6 +159,7 @@
 				70B6FAE428FEF5EC00BC7E02 /* Contact.swift in Sources */,
 				70B6FACE28FCF79900BC7E02 /* AppDelegate.swift in Sources */,
 				70B6FAD028FCF79900BC7E02 /* SceneDelegate.swift in Sources */,
+				7041F2EC291C94060091C56A /* NewContactViewCell.swift in Sources */,
 				70B6FAE628FEF60600BC7E02 /* ContactAPI.swift in Sources */,
 				70EADC4D29194A7A006BB094 /* ContactsViewDelegate.swift in Sources */,
 				70EADC4B29170278006BB094 /* ContactsDataSource.swift in Sources */,

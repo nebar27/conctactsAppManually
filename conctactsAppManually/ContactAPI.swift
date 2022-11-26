@@ -10,25 +10,37 @@ import Foundation
 
 class ContactAPI {
     
+    enum Section : String, CaseIterable {
+        case addNew = "Add New"
+        case addedContacts = "Contacts"
+    }
     
-    static func getContact() -> [Contact] {
-       
-        let contacts = [
-            Contact(name: "Kelly Goodwin", jobTitle: "Designer", country: "bo"),
-            Contact(name: "Mohammad Hussain", jobTitle: "SEO Specialist", country: "be"),
-            Contact(name: "John Young", jobTitle: "Interactive Designer", country: "af"),
-            Contact(name: "Tamilarasi Mohan", jobTitle: "Architect", country: "al"),
-            Contact(name: "Kim Yu", jobTitle: "Economist", country: "br"),
-            Contact(name: "Derek Fowler", jobTitle: "Web Strategist", country: "ar"),
-            Contact(name: "Shreya Nithin", jobTitle: "Product Designer", country: "az"),
-            Contact(name: "Emily Adams", jobTitle: "Editor", country: "bo"),
-            Contact(name: "Aabidah Amal", jobTitle: "Creative Director", country: "au"),
-            Contact(name: "Jeans Ruiz", jobTitle: "IOS Developer", country: "pe"),
-            Contact(name: "Kelly Goodwin", jobTitle: "Designer", country: "bo"),
-            Contact(name: "Mohammad Hussain", jobTitle: "SEO Specialist", country: "be"),
-            Contact(name: "Manuel Poblete", jobTitle: "Architect", country: nil)
-        ]
-        return contacts
+    static let shared = ContactAPI()
+    let sections = Section.allCases
+    
+    var data: [Section: [Contact]] = [
+        .addedContacts:[Contact(name: "Kelly Goodwin", jobTitle: "Designer", country: "bo", aboutMe: "I am designer"),
+        Contact(name: "Mohammad Hussain", jobTitle: "SEO Specialist", country: "be", aboutMe: "I am a SEO"),
+        Contact(name: "John Young", jobTitle: "Interactive Designer", country: "af", aboutMe: "I am an Interactive Designer"),
+        Contact(name: "Tamilarasi Mohan", jobTitle: "Architect", country: "al", aboutMe: "I am an Architect "),
+        Contact(name: "Kim Yu", jobTitle: "Economist", country: "br", aboutMe: "I am designer an Economist "),
+        Contact(name: "Derek Fowler", jobTitle: "Web Strategist", country: "ar", aboutMe: "I am Web Strategist"),
+        Contact(name: "Shreya Nithin", jobTitle: "Product Designer", country: "az", aboutMe: "I am a Product Designer "),
+        Contact(name: "Emily Adams", jobTitle: "Editor", country: "bo", aboutMe: "I am a Editor"),
+        Contact(name: "Aabidah Amal", jobTitle: "Creative Director", country: "au", aboutMe: "I am a Creative Director"),
+        Contact(name: "Jeans Ruiz", jobTitle: "IOS Developer", country: "pe", aboutMe: "I am IOS Developer "),
+        Contact(name: "Kelly Goodwin", jobTitle: "Designer", country: "bo",aboutMe: "I am a designer"),
+        Contact(name: "Mohammad Hussain", jobTitle: "SEO Specialist", country: "be", aboutMe: "I am SEO Specialist "),
+        Contact(name: "Manuel Poblete", jobTitle: "Architect", country: nil, aboutMe: "I am a Software Architect ")]
+    ]
+    
+    static func addContact(contact: Contact) {
+        
+    }
+    
+    func contact(at indexPath: IndexPath) ->Contact? {
+        let category = sections[indexPath.section]
+        return data[category]?[indexPath.item]
     }
     
 }

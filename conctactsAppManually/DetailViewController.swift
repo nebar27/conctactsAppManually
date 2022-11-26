@@ -9,7 +9,7 @@ import UIKit
 
 class DetailViewController: UIViewController {
     
-    var contact: Contact?
+    private let contact: Contact?
     
     private let detailView: UIView = {
         let view = UIView()
@@ -49,7 +49,35 @@ class DetailViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-
+    
+    private let aboutMeLabel: UILabel = {
+        let label = UILabel()
+        label.text = "About Me "
+        label.font = UIFont.preferredFont(forTextStyle: .headline)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        return label
+    } ()
+    
+    private let valueAboutMeLabel: UILabel = {
+       let label = UILabel()
+        label.text = " Default about "
+        label.numberOfLines = 5
+        label.lineBreakMode = .byWordWrapping
+        label.font = UIFont.preferredFont(forTextStyle: .body)
+        label.translatesAutoresizingMaskIntoConstraints = false
+       return label
+    } ()
+    
+    init(contact: Contact) {
+        self.contact = contact
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -58,6 +86,8 @@ class DetailViewController: UIViewController {
         detailView.addSubview(valueNameLabel)
         detailView.addSubview(jobTitleLabel)
         detailView.addSubview(jobTitleValue)
+        detailView.addSubview(aboutMeLabel)
+        detailView.addSubview(valueAboutMeLabel)
         
         view.addSubview(detailView)
         
@@ -67,6 +97,10 @@ class DetailViewController: UIViewController {
     
     func setUpAutoLayout() {
         
+        nameLabel.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+        nameLabel.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+        jobTitleLabel.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+        
         NSLayoutConstraint.activate([
             
             detailView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
@@ -74,10 +108,6 @@ class DetailViewController: UIViewController {
             detailView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
             detailView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
 
-            nameLabel.topAnchor.constraint(equalTo: detailView.topAnchor, constant: 40),
-            nameLabel.leftAnchor.constraint(equalTo: detailView.leftAnchor, constant: 10),
-            nameLabel.heightAnchor.constraint(equalToConstant: 50),
-            
             nameLabel.topAnchor.constraint(equalTo: detailView.topAnchor, constant: 40),
             nameLabel.leftAnchor.constraint(equalTo: detailView.leftAnchor, constant: 10),
             nameLabel.heightAnchor.constraint(equalToConstant: 50),
@@ -94,25 +124,30 @@ class DetailViewController: UIViewController {
             jobTitleValue.topAnchor.constraint(equalTo: valueNameLabel.bottomAnchor, constant: 5),
             jobTitleValue.leadingAnchor.constraint(equalTo: jobTitleLabel.trailingAnchor, constant: 10),
             jobTitleValue.trailingAnchor.constraint(equalTo: detailView.trailingAnchor, constant: -5),
-            jobTitleValue.heightAnchor.constraint(equalToConstant: 50)
+            jobTitleValue.heightAnchor.constraint(equalToConstant: 50),
+            
+            aboutMeLabel.topAnchor.constraint(equalTo: jobTitleLabel.bottomAnchor, constant: 5),
+            aboutMeLabel.leadingAnchor.constraint(equalTo: detailView.leadingAnchor, constant: 10),
+            aboutMeLabel.heightAnchor.constraint(equalToConstant: 50),
+            
+            valueAboutMeLabel.topAnchor.constraint(equalTo: jobTitleValue.bottomAnchor, constant: 5),
+            valueAboutMeLabel.leadingAnchor.constraint(equalTo: aboutMeLabel.trailingAnchor, constant: 10),
+            valueAboutMeLabel.trailingAnchor.constraint(equalTo: detailView.trailingAnchor, constant: -5),
+            valueAboutMeLabel.heightAnchor.constraint(equalToConstant: 50)
             
         ])
-        
-        nameLabel.setContentHuggingPriority(.defaultHigh, for: .horizontal)
-        nameLabel.setContentHuggingPriority(.defaultHigh, for: .horizontal)
-        jobTitleLabel.setContentHuggingPriority(.defaultHigh, for: .horizontal)
-
         
     }
     
     func fillGuiWithValues() {
        
-        if let contact = contact {
-            valueNameLabel.text = contact.name
-            jobTitleValue.text = contact.jobTitle
+        if let contact = self.contact {
+          valueNameLabel.text = contact.name
+          jobTitleValue.text = contact.jobTitle
+          valueAboutMeLabel.text = contact.aboutMe
         }
+        
     }
     
-
-   
+    
 }

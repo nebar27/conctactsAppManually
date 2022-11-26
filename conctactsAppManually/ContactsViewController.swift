@@ -11,9 +11,8 @@ import UIKit
 class ContactsViewController: UIViewController {
     
   
-    private let contactsTableView = UITableView()
-    private let contacts = ContactAPI.getContact()
     private var dataSource = ContactsDataSource()
+    private let contactsTableView = UITableView()
     private var contactViewDelegate:ContactsViewDelegate?
     
     override func viewDidLoad() {
@@ -27,6 +26,7 @@ class ContactsViewController: UIViewController {
         
         tableViewConstraints()
         contactsTableView.register(ContactTableViewCell.self, forCellReuseIdentifier: "contactCell")
+        contactsTableView.register(NewContactViewCell.self, forCellReuseIdentifier: "NewContactViewCell")
         contactViewDelegate = ContactsViewDelegate(withDelegate: self)
         contactsTableView.dataSource = dataSource
         contactsTableView.delegate = contactViewDelegate
@@ -57,9 +57,5 @@ class ContactsViewController: UIViewController {
         
     }
     
-    func getContactsModel() -> [Contact] {
-        return self.contacts
-    }
-
     
 }

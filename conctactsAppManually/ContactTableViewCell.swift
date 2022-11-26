@@ -95,8 +95,6 @@ class ContactTableViewCell: UITableViewCell {
         
     }
     
-    //private var model: Contact?
-    
     public func setModel(contactModel: Contact?) {
       
         if let contact = contactModel {

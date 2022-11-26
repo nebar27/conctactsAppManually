@@ -10,6 +10,7 @@ import UIKit
 class ContactsViewDelegate :NSObject, UITableViewDelegate {
     
     var contactsViewController: ContactsViewController?
+    let contactaApi = ContactAPI.shared
     
     init(withDelegate delegate: ContactsViewController) {
         self.contactsViewController = delegate
@@ -20,10 +21,16 @@ class ContactsViewDelegate :NSObject, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let contact = self.contactsViewController?.getContactsModel()[indexPath.row]
-        let detailViewController = DetailViewController()
-        detailViewController.contact = contact
-        contactsViewController?.navigationController?.pushViewController(detailViewController, animated: true)
+        let category =  contactaApi.sections[indexPath.section]
+        guard let contact = contactaApi.data[category]?[indexPath.row] else {
+            return
+        }
+        let detailViewController = DetailViewController(contact: contact)
+        contactsViewController?.navigationController?.pushViewController(detailViewController, animated: true )
     }
     
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        section == 0 ? 60 : 20
+            
+    }
 }
