@@ -24,12 +24,12 @@ class ContactsViewController: UIViewController {
         
         view.addSubview(contactsTableView)
         
-        tableViewConstraints()
         contactsTableView.register(ContactTableViewCell.self, forCellReuseIdentifier: "contactCell")
         contactsTableView.register(NewContactViewCell.self, forCellReuseIdentifier: "NewContactViewCell")
         contactViewDelegate = ContactsViewDelegate(withDelegate: self)
         contactsTableView.dataSource = dataSource
         contactsTableView.delegate = contactViewDelegate
+        tableViewConstraints()
         
     }
     
@@ -54,6 +54,28 @@ class ContactsViewController: UIViewController {
         self.navigationController?.navigationBar.scrollEdgeAppearance = navigationController?.navigationBar.standardAppearance
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(red: 1, green: 1, blue: 1, alpha: 1)]
+        
+    }
+    
+    func getTableView() -> UITableView {
+        return self.contactsTableView
+    }
+    
+}
+
+extension ContactsViewController: NewConctactDelegateProtocol {
+    
+    func newContactDidAdded(contact: Contact) {
+        contactsTableView.beginUpdates()
+        print("add model in Parent \(contact)")
+        let category = dataSource.contactaApi.sections[1]
+        dataSource.addContact( contact, to: category)
+        //into the view
+        
+        let numberRowsInTableView = contactsTableView.numberOfRows(inSection: 1)
+        let insertedIndex = IndexPath(item: numberRowsInTableView, section: 1)
+        contactsTableView.insertRows(at: [insertedIndex], with: .right)
+        contactsTableView.endUpdates()
         
     }
     

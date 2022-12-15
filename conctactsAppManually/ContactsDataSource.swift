@@ -10,7 +10,7 @@ import UIKit
 class ContactsDataSource: NSObject, UITableViewDataSource {
     
     
-    let contactaApi = ContactAPI.shared
+    var contactaApi = ContactAPI.shared
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
@@ -45,5 +45,30 @@ class ContactsDataSource: NSObject, UITableViewDataSource {
         contactaApi.sections.count
     }
     
+    
+    
 }
 
+extension ContactsDataSource {
+    
+    func addContact( _ contact: Contact, to category: ContactAPI.Section) {
+        guard var contactData = self.contactaApi.data[category] else { return }
+        contactData.append(contact)
+        self.contactaApi.data.updateValue(contactData, forKey: category)
+    }
+    
+    func deleteContact(at indexPath: IndexPath) {
+        let category = contactaApi.sections[indexPath.section]
+        guard var contactData = self.contactaApi.data[category] else { return }
+        contactData.remove(at: indexPath.item)
+        contactaApi.data.updateValue(contactData, forKey: category)
+    }
+    
+    func deleteContact(at indexPaths: [IndexPath] ) {
+        
+        for indexPath in indexPaths {
+            deleteContact(at: indexPath)
+        }
+        
+    }
+}
