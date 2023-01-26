@@ -16,9 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
        
        window = UIWindow(frame: UIScreen.main.bounds)
 //       window?.rootViewController = ContactsViewController()
-       window?.rootViewController = UINavigationController(rootViewController: ContactsViewController())
+       window?.rootViewController = UINavigationController(rootViewController: ContactsViewController_temp())
        window?.makeKeyAndVisible()
-       
+    
        
         return true
     }

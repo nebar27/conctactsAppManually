@@ -14,6 +14,7 @@ class NewContactViewCell: UITableViewCell {
     
     let profileImage: UIImageView = {
         let personImage = UIImage(systemName: "person.crop.circle.badge.plus")
+//        let personImage = UIImage()
         let image = UIImageView(image: personImage)
         image.translatesAutoresizingMaskIntoConstraints = false
         image.contentMode = .scaleToFill

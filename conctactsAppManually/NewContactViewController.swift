@@ -167,9 +167,8 @@ class NewContactViewController: UIViewController {
         delegate?.newContactDidAdded(contact: model)
         
        // Go back to root view controller
-//       navigationController?.popToRootViewController(animated: true)
-        
-        navigationController?.popViewController(animated: true)
+       //  navigationController?.popToRootViewController(animated: true)
+        navigationController?.popViewController(animated: false)
        
     }
 }

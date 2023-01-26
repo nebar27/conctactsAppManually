@@ -27,7 +27,6 @@ class ContactsDataSource: NSObject, UITableViewDataSource {
     
     // Analize this source code carefully 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         if indexPath == IndexPath(row: 0, section: 0) {
             let cell = tableView.dequeueReusableCell(withIdentifier: "NewContactViewCell", for: indexPath)
             return cell
@@ -38,14 +37,15 @@ class ContactsDataSource: NSObject, UITableViewDataSource {
         let model = self.contactaApi.data[category]?[indexPath.item]
         cell.setModel(contactModel: model)
         return cell
-        
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         contactaApi.sections.count
     }
-    
-    
+    //func tableView(_ tableView: UITableView, commit editingStyleForRowAt: UITableViewCell.EditingStyle
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+    }
     
 }
 
