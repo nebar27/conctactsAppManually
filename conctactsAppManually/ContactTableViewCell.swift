@@ -15,6 +15,7 @@ import UIKit
 class ContactTableViewCell: UITableViewCell {
     
     var contact:Contact?
+    var isEditingMode: Bool = false
   
     
     let profileImageView: UIImageView = {
@@ -92,7 +93,6 @@ class ContactTableViewCell: UITableViewCell {
         countryImageView.trailingAnchor.constraint(equalTo:self.contentView.trailingAnchor, constant:-20).isActive = true
         countryImageView.centerYAnchor.constraint(equalTo:self.contentView.centerYAnchor).isActive = true
         
-        
     }
     
     public func setModel(contactModel: Contact?) {
@@ -117,6 +117,9 @@ class ContactTableViewCell: UITableViewCell {
     
     }
     
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+    }
     // Pending of reviewing
     // This method is called whenever a cell is reused
     override func prepareForReuse() {
@@ -130,5 +133,21 @@ class ContactTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+//    override var editingStyle: UITableViewCell.EditingStyle {
+//        .delete
+//    }
+    
+//    override var isSelected: Bool {
+//        didSet {
+//            if isEditing {
+//                contentView.backgroundColor = isSelected ? UIColor.systemRed.withAlphaComponent(0.5) : .gray
+//
+////                UIColor.systemGroupedBackground
+//            }
+////            else {
+////                contentView.backgroundColor = UIColor.systemGroupedBackground
+////            }
+//        }
+//    }
 
 }
